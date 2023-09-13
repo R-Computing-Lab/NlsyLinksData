@@ -6,19 +6,18 @@
 \title{Dataset containing survey details for each subject, for each year}
 \format{
 A data frame with 580,752 observations on the following 6 variables.
-\itemize{
-\item \strong{SubjectTag} see the variable of the same name in \link{Links79Pair}
-\item \strong{SurveySource} The location of that subject's survey responses that year.  Values are \code{NoInterview}, \code{Gen1}, \code{Gen2C} or \code{Gen2YA}.
-\item \strong{SurveyYear} The year/wave of the survey.
-\item \strong{Survey79} The exact date of the administered survey.
-\item \strong{Age} The subject's age at the time of the survey, rounded to 1 decimal.
-See Details below.
-}
+* **SubjectTag** see the variable of the same name in [Links79Pair]
+* **SurveySource** The location of that subject's survey responses that year.  Values are `NoInterview`, `Gen1`, `Gen2C` or `Gen2YA`.
+* **SurveyYear** The year/wave of the survey.
+* **Survey79** The exact date of the administered survey.
+* **AgeSelfReportYears** The subject's age, according to a their own response, or their mother's response.
+* **AgeCalculateYears** The subject's age, calculated from subtracting their birthday from the interview date.
+* **Age** The subject's age, which uses `AgeCalculateYears` or `AgeSelfReportYears` if it's not available.
 }
 \source{
-Gen1 information comes from the Summer 2013 release of the \href{https://www.nlsinfo.org/content/cohorts/nlsy79}{NLSY79 sample}.  Gen2 information
+Gen1 information comes from the Summer 2013 release of the [NLSY79 sample](https://www.nlsinfo.org/content/cohorts/nlsy79).  Gen2 information
 comes from the January 2015 release of the
-\href{https://www.nlsinfo.org/content/cohorts/nlsy79-children}{NLSY79 Children and Young Adults sample}.  Data were extracted with the NLS Investigator
+[NLSY79 Children and Young Adults sample](https://www.nlsinfo.org/content/cohorts/nlsy79-children).  Data were extracted with the NLS Investigator
 (https://www.nlsinfo.org/investigator/).
 }
 \description{
@@ -32,18 +31,10 @@ These variables are useful to many types of analyses (not just behavior genetics
 provided to save users time.
 }
 \details{
-\code{Age} uses a variable called \code{AgeCalculateYears} (according to a their own
-response, or their mother's response) if it's available, and uses
-\code{AgeSelfReportYears} (according to a their own response, or their mother's
-response)
-if not.  The values usually agree, but not always.
-These two separated variables are available for download,
-but withheld from the R package
-(otherwise we would exceed CRAN's maximum size).
+The `AgeSelfReportYears` and `AgeCalculateYears` variables usually agree, but not always.  The `Age` variable uses `AgeCalculateYears` (or `AgeSelfReportYears` when `AgeCalculateYears` is missing).
 
-The exact \emph{date} of birth isn't public (only the subject's \emph{month} of birth).
-To balance the downward bias of two weeks, their birthday is set to the
-15th day of the month to produce \code{AgeCalculateYears}.
+The exact *date* of birth isn't public (only the subject's *month* of birth).  To balance the downward bias of two weeks,
+their birthday is set to the 15th day of the month to produce `AgeCalculateYears`.
 
 In the Gen2 Child dataset, self-reported age is
 stated by month (eg, the child is 38 months old); a constant of 0.5 months has been added to balance the downward bias.  In the Gen2 YA and
@@ -80,12 +71,12 @@ if (require(ggplot2) & require(dplyr)) {
 \author{
 Will Beasley
 
-\strong{Download CSV}
+**Download CSV**
 If you're using the NlsyLinks package in R, the dataset is automatically available.
 To use it in a different environment,
-\href{https://github.com/nlsy-links/NlsyLinks/blob/master/outside-data/nlsy-79/survey-79.csv?raw=true}{download the csv},
+[download the csv](https://github.com/nlsy-links/NlsyLinks/blob/master/outside-data/nlsy-79/survey-79.csv?raw=true),
 which is readable by all statistical software.
-\href{https://github.com/nlsy-links/NlsyLinks/blob/master/outside-data/nlsy-79/links-metadata-2017-79.yml}{links-metadata-2017-79.yml}
+[links-metadata-2017-79.yml](https://github.com/nlsy-links/NlsyLinks/blob/master/outside-data/nlsy-79/links-metadata-2017-79.yml)
 documents the dataset version information.
 }
 \keyword{datasets}

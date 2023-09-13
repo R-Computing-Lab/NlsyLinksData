@@ -3,48 +3,48 @@
 \docType{data}
 \name{Links97PairExpanded}
 \alias{Links97PairExpanded}
-\title{Kinship linking file for pairs of relatives In the NLSY97.  It builds upon the \link{Links97Pair} dataset.}
+\title{Kinship linking file for pairs of relatives In the NLSY97.  It builds upon the [Links97Pair] dataset.}
 \format{
 A data frame with 11,075 observations on the following 22 variables.
 There is one row per unique pair of subjects, irrespective of order.
-\itemize{
-\item \strong{ExtendedID} see the variable of the same name in \link{Links97Pair}
-\item \strong{SubjectTag_S1} see the variable of the same name in \link{Links97Pair}
-\item \strong{SubjectTag_S2} see the variable of the same name in \link{Links97Pair}
-\item \strong{R} see the variable of the same name in \link{Links97Pair}
-\item \strong{RFull} This is a superset of \code{R}.  This includes all the \emph{R} values we estimated, while \code{R} (i.e., the variable above) excludes values like \emph{R}=0.
-\item \strong{RelationshipPath} see the variable of the same name in \link{Links97Pair}
-\item \strong{EverSharedHouse} Indicate if the pair likely live in the same house.  This is \code{TRUE} for all pairs in this NLSY97 dataset.
-\item \strong{IsMz} Indicates if the pair is from the same zygote (ie, they are identical twins/triplets). This variable is a factor, with levels \code{No}=0, \code{Yes}=1, \code{DoNotKnow}=255.
-\item \strong{LastSurvey_S1} The year of Subject1's most recently completed survey. This may be different that the survey's administration date.
-\item \strong{LastSurvey_S2} The year of Subject2's most recently completed survey. This may be different that the survey's administration date.
-\item \strong{RPass1} The pair's estimated \emph{R} coefficient, using both implicit and explicit information.  Interpolation was NOT used.  The variable \code{R} is identically constructed, but it did use interpolation.
-\item \strong{SubjectID_S1} The ID value assigned by NLS to the first subject.  For Gen1 Subjects, this is their "CaseID" (ie, R00001.00).  For Gen2 subjects, this is their "CID" (ie, C00001.00).
-\item \strong{SubjectID_S2} The ID value assigned by NLS to the second subject.
-}
+
+* **ExtendedID** see the variable of the same name in [Links97Pair]
+* **SubjectTag_S1** see the variable of the same name in [Links97Pair]
+* **SubjectTag_S2** see the variable of the same name in [Links97Pair]
+* **R** see the variable of the same name in [Links97Pair]
+* **RFull** This is a superset of `R`.  This includes all the *R* values we estimated, while `R` (i.e., the variable above) excludes values like *R*=0.
+* **RelationshipPath** see the variable of the same name in [Links97Pair]
+* **EverSharedHouse** Indicate if the pair likely live in the same house.  This is `TRUE` for all pairs in this NLSY97 dataset.
+* **IsMz** Indicates if the pair is from the same zygote (ie, they are identical twins/triplets). This variable is a factor, with levels `No`=0, `Yes`=1, `DoNotKnow`=255.
+* **LastSurvey_S1** The year of Subject1's most recently completed survey. This may be different that the survey's administration date.
+* **LastSurvey_S2** The year of Subject2's most recently completed survey. This may be different that the survey's administration date.
+* **RPass1** The pair's estimated *R* coefficient, using both implicit and explicit information.  Interpolation was NOT used.  The variable `R` is identically constructed, but it did use interpolation.
+* **SubjectID_S1** The ID value assigned by NLS to the first subject.  For Gen1 Subjects, this is their "CaseID" (ie, R00001.00).  For Gen2 subjects, this is their "CID" (ie, C00001.00).
+* **SubjectID_S2** The ID value assigned by NLS to the second subject.
 }
 \source{
-See \link{Links97Pair}.
+See [Links97Pair].
 }
 \description{
-Please first read the documentation for \link{Links97Pair}.  That
+Please first read the documentation for [Links97Pair].  That
 dataset contains the same pairs/rows, but only a subset of the
 variables/columns.
 
 For variables
-that are measured separately for both subjects (eg, Gender), the subjects' variable name will have an \verb{_S1} or \verb{_S2}
-appended to it.  For instance, the variables \code{LastSurvey_S1} and \code{LastSurvey_S2} correspond to the last surveys completed
-by the pair's first and second subject, respectively.  Similarly, the functions \code{\link[=CreatePairLinksDoubleEntered]{CreatePairLinksDoubleEntered()}} and
-\code{\link[=CreatePairLinksSingleEntered]{CreatePairLinksSingleEntered()}} by default append \verb{_S1} and \verb{_S2}.  However this can be
+that are measured separately for both subjects (eg, Gender), the subjects' variable name will have an `_S1` or `_S2`
+appended to it.  For instance, the variables `LastSurvey_S1` and `LastSurvey_S2` correspond to the last surveys completed
+by the pair's first and second subject, respectively.  Similarly, the functions [CreatePairLinksDoubleEntered()] and
+[CreatePairLinksSingleEntered()] by default append `_S1` and `_S2`.  However this can be
 modified using the 'subject1Qualifier' and 'subject2Qualifier' parameters.
 }
 \details{
-Specifies the relatedness coefficient (ie, '\emph{R}') between subjects in the
+Specifies the relatedness coefficient (ie, '*R*') between subjects in the
 same extended family.  Each row represents a unique relationship pair.  An
 extended family with \eqn{k} subjects will have \eqn{k}(\eqn{k}-1)/2 rows.
 Typically, Subject1 is older while Subject2 is younger.
 
-The specific steps to determine the \emph{R} coefficient will be described
+
+The specific steps to determine the *R* coefficient will be described
 in an upcoming publication.  The following information may influence the
 decisions of an applied researcher.
 }
@@ -60,12 +60,12 @@ hist(Links97PairExpanded$R) # Declare a concise variable name.
 
 }
 \seealso{
-\strong{Download CSV}
+**Download CSV**
 If you're using the NlsyLinks package in R, the dataset automatically is available.
 To use it in a different environment,
-\href{https://github.com/nlsy-links/NlsyLinks/blob/master/outside-data/nlsy-97/links-2017-97.csv?raw=true}{download the csv},
+[download the csv](https://github.com/nlsy-links/NlsyLinks/blob/master/outside-data/nlsy-97/links-2017-97.csv?raw=true),
 which is readable by all statistical software.
-\href{https://github.com/nlsy-links/NlsyLinks/blob/master/outside-data/nlsy-97/links-metadata-2017-97.yml}{links-metadata-2017-97.yml}
+[links-metadata-2017-97.yml](https://github.com/nlsy-links/NlsyLinks/blob/master/outside-data/nlsy-97/links-metadata-2017-97.yml)
 documents the dataset version information.
 }
 \author{
